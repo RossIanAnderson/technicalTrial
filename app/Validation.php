@@ -25,6 +25,11 @@ class Validation {
                                 $this->addError("{$item} must be a maximum of {$rule_value} characters.");
                             }
                         break;
+                        case 'pattern':
+                            if(!preg_match($rule_value, $value)){
+                                $this->addError("{$item} is not in a proper format.");
+                            }
+                        break;
                     }
                 }
             }
