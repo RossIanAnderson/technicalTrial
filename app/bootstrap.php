@@ -1,10 +1,5 @@
 <?php
 
-$app['config'] = [
-    'db' => require 'config/db.php',
-    'api' => require 'config/api.php'
-];
+App::bind('config', require 'config.php');
 
-$app['db'] = new QueryBuilder(
-    Connection::establish($app['config']['db'])
-);
+App::bind('database', new QueryBuilder(Connection::make(App::get('config')['db'])));

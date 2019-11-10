@@ -1,22 +1,14 @@
 <?php
-// Reused file
-class Validation {
-    protected $passed = false,
-            $errors = [],
-            $db = null;
 
-    public function __construct(){
-        $this->db = new QueryBuilder(
-            Connection::establish(require 'config/db.php')
-        );
-    }
+class Validation {
+    protected $passed = false, $errors = [];
 
     public function check($source, $items = array()){
         foreach($items as $item => $rules){
             foreach($rules as $rule => $rule_value){
 
                 $value = trim($source[$item]);
-                $item = htmlentities($item, ENT_QUOTES, 'UTF-8');
+                $item = sanitize($item);
 
                 if($rule === 'required' && empty($value)){
                     $this->addError("{$item} is required");

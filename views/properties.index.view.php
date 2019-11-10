@@ -3,7 +3,7 @@
 <div class="container d-flex justify-content-between align-items-center py-3">
     <h2>All the Properties</h2>
     <div class="btn-group"> 
-        <a href="/populate" class="btn btn-secondary btn-sm">Populate</a>
+        <a href="/properties/populate" class="btn btn-secondary btn-sm">Populate</a>
         <a href="/properties/create" class="btn btn-secondary btn-sm">Add New</a>
     </div>
 </div>

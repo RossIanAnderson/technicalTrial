@@ -2,7 +2,7 @@
 
 class Connection
 {
-    public static function establish($config)
+    public static function make($config)
     {
         try{
             return new PDO(

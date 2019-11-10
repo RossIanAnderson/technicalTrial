@@ -4,7 +4,6 @@
     <h2>Showing Single Property</h2>
     <a href="/properties" class="btn btn-secondary btn-sm">Back</a>
 </div>
-
 <form class="col-md-8 offset-2">
     <div class="form-group">
         <label for="inputAddress">Address</label>

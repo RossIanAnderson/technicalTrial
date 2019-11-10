@@ -2,22 +2,13 @@
 
 class Property
 {
-    protected $passed = false,
-        $errors = array(),
-        $db = null;
-
-    public function __construct()
-    {
-        $this->db = new QueryBuilder(
-            Connection::establish(require 'config/db.php')
-        );
-    }
+    protected $passed = false;
 
     public function create($fields)
     {
         try
         {
-            $this->db->insert('properties', $fields);
+            App::get('database')->insert('properties', $fields);
         }
         catch(Exception $e)
         {

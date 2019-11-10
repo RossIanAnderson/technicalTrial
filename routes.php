@@ -1,11 +1,11 @@
 <?php
 
-$router->get('', 'controllers/index.php');
+$router->get('', 'PagesController@index');
 
-$router->get('properties', 'controllers/properties.php');
-$router->get('properties/show', 'controllers/properties.show.php');
-$router->get('properties/create', 'controllers/properties.create.php');
-$router->post('properties/store', 'controllers/properties.store.php');
-$router->get('properties/destroy', 'controllers/properties.destroy.php');
+$router->get('properties', 'PropertiesController@index');
+$router->get('properties/show', 'PropertiesController@show');
+$router->get('properties/create', 'PropertiesController@create');
+$router->post('properties/store', 'PropertiesController@store');
+$router->get('properties/destroy', 'PropertiesController@destroy');
 
-$router->get('populate', 'controllers/api-call.php');
+$router->get('properties/populate', 'PropertiesController@populate');

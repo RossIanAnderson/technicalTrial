@@ -1,0 +1,20 @@
+CREATE TABLE `properties` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(40) DEFAULT NULL,
+  `county` varchar(20) DEFAULT NULL,
+  `country` varchar(50) DEFAULT NULL,
+  `town` varchar(20) DEFAULT NULL,
+  `description` text,
+  `address` varchar(50) DEFAULT NULL,
+  `postcode` varchar(10) DEFAULT NULL,
+  `image_url` varchar(50) DEFAULT NULL,
+  `thumb_url` varchar(50) DEFAULT NULL,
+  `latitude` float DEFAULT NULL,
+  `longitude` float DEFAULT NULL,
+  `num_bedrooms` int(11) DEFAULT NULL,
+  `num_bathrooms` int(11) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `property_type_id` int(11) DEFAULT NULL,
+  `type` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=190 DEFAULT CHARSET=utf8;

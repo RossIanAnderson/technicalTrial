@@ -1,7 +1,5 @@
 <?php
 
-// Reused file
-
 class Upload
 {
     protected $upload, $dir, $size, $name, $allowed, $ext;
