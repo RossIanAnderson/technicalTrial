@@ -49,16 +49,19 @@ class PropertiesController
                 'bedrooms' => array(
                     'min' => 1,
                     'max' => 9
-                ), 
-                'bathrooms' => array(
-                    'min' => 1,
-                    'max' => 9
-                )
+                ),
+                'postcode' => array(
+                    'required' => true,
+                    'pattern' => '/^([A-Z][A-HJ-Y]?\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$/'
+                ),
             ));
     
             if($validation->passed()){
                 $property = new Property;
                 try {
+                    $upload = new Upload(Input::get('image'), 'uploads/images', null, 1000000);
+                    $image = $upload->getFullName();
+
                     $property->create([
                         'uuid' => \Ramsey\Uuid\Uuid::uuid4(),
                         'address' => Input::get('address'),
@@ -67,6 +70,7 @@ class PropertiesController
                         'town' => Input::get('town'),
                         'county' => Input::get('county'),
                         'postcode' => Input::get('postcode'),
+                        'image_url' => 'uploads/images/' . $image,
                         'price' => (int)Input::get('price'),
                         'num_bedrooms' => (int)Input::get('bedrooms'),
                         'num_bathrooms' => (int)Input::get('bathrooms'),
@@ -76,16 +80,11 @@ class PropertiesController
                     Redirect::to('/properties');
                 }
                 catch(Exception $e) {
-                    die($e->getMessage());
+                    dd($e->getMessage());
                 }
             }
             else {
-                foreach($validation->errors() as $error): ?>
-                    <div class="alert alert-danger" role="alert">
-                        <strong>Error!</strong> <?=$error ?>
-                    </div>
-            <?php endforeach;
-    
+                dd($validation->errors());
             }
         }
     }
@@ -106,7 +105,7 @@ class PropertiesController
 
     public function destroy()
     {
-        $property = App::get('database')->delete('properties', 'uuid', Input::get('uuid'));
+        App::get('database')->delete('properties', 'uuid', Input::get('uuid'));
         Redirect::to('/properties');
     }
 
@@ -158,11 +157,10 @@ class PropertiesController
                 ]);
             }
             catch(Exception $e){
-                die($e->getMessage());
+                dd($e->getMessage());
             }
         }
         Redirect::to('/properties');
-        //header('Location: /properties');
     }
 
 }
