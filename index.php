@@ -1,5 +1,7 @@
 <?php
 
+define('ROOTPATH', __DIR__);
+
 require 'vendor/autoload.php';
 require 'app/bootstrap.php';
 

@@ -32,7 +32,7 @@
             <input type="text" name="postcode" class="form-control" id="inputPostcode">
         </div>
     </div>
-    <div class="form-row ">
+    <div class="form-row">
         <div class="form-group col-md-2">
             <label for="inputPrice">Price</label>
             <input type="text" name="price" class="form-control" id="inputPrice">
@@ -64,16 +64,24 @@
                 <?php endfor; ?>
             </select>
         </div>
-
-        <div class="form-group col-md-4">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="type" id="inlineRadioRent" value="rent">
-                <label class="form-check-label" for="inlineRadioRent">To Rent</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" checked type="radio" name="type" id="inlineRadioSale" value="sale">
-                <label class="form-check-label" for="inlineRadioSale">For Sale</label>
-            </div>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+        </div>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" name="image" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="type" id="inlineRadioRent" value="rent">
+            <label class="form-check-label" for="inlineRadioRent">To Rent</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" checked type="radio" name="type" id="inlineRadioSale" value="sale">
+            <label class="form-check-label" for="inlineRadioSale">For Sale</label>
         </div>
     </div>
 
